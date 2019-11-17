@@ -4,7 +4,7 @@
 
 using namespace std;
   
-pthread_mutex_t mutex_thread = PTHREAD_MUTEX_INITIALIZER;  
+
 
 class Singleton{
 	public:
@@ -40,12 +40,14 @@ class Singleton{
 		}
 	
 		static Singleton* s_instance;
-
+		static pthread_mutex_t mutex_thread;
 
 };
 
 
- Singleton* Singleton::s_instance = 	NULL;
+Singleton* Singleton::s_instance = NULL;
+pthread_mutex_t Singleton::mutex_thread = PTHREAD_MUTEX_INITIALIZER;
+
 using std::cout;
 using std::endl;
 
