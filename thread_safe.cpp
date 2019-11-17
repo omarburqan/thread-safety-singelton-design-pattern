@@ -16,13 +16,13 @@ class Singleton{
 				if(NULL == s_instance)
 				{
 					s_instance = new Singleton();
-					cout << " New Singelton " << endl;
+					cout << " New Singelton ID : " << pthread_self() << endl;
 				}
 				pthread_mutex_unlock(&mutex_thread);
 
 			}
 			if( NULL != s_instance){
-				cout << " old Singelton " << endl;
+				cout << " old Singelton ID : " << pthread_self() << endl;
 				return s_instance;      
 
 			}
